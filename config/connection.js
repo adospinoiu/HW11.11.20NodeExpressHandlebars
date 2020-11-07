@@ -1,3 +1,6 @@
+//**** THIS FILE IS COMPLETE ****//
+
+// Sets up the connection to MySQL
 const mysql = require("mysql");
 
 const connection = mysql.createConnection({
@@ -8,6 +11,7 @@ const connection = mysql.createConnection({
   database: "burgers_db"
 });
 
+// Makes the connection
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -16,4 +20,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+// Exports the connection for use in the ORM
 module.exports = connection;
