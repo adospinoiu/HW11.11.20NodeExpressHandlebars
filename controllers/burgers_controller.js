@@ -11,7 +11,7 @@ const burger = require("../models/burger.js");
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
     const hbsObject = {
-      cats: data
+      burgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -19,15 +19,15 @@ router.get("/", function(req, res) {
 });
 
 // Make this work
-router.post("/api/cats", function(req, res) {
-  cat.create(["name", "sleepy"], [req.body.name, req.body.sleepy], function(result) {
+router.post("/api/burgers", function(req, res) {
+  burger.create(["name"], [req.body.name], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
 // Make this work
-router.put("/api/cats/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   const condition = "id = " + req.params.id;
 
   console.log("condition", condition);
