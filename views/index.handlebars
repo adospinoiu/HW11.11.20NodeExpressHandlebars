@@ -1,16 +1,19 @@
-<h1>Cats!</h1>
+<h1>Let's Eat Some Burgers</h1>
 
-<h2>Cats that are not sleepy!</h2>
+<h2>On The Menu</h2>
 
 <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
+  {{#each burgers}}
+    {{!-- {{#unless devoured}}
+     
+    {{/unless}} --}}
+    <li>
+      {{burger_name}} <button class="delete-burger" data-id="{{id}}">DEVOUR!</button>
+    </li>
   {{/each}}
 </ul>
 
-<h2>Burger Galore</h2>
+<h2>You Pig! Look </h2>
 
 {{!-- <ul>
   {{#each cats}}
@@ -20,7 +23,7 @@
   {{/each}}
 </ul> --}}
 
-<h2>Add a Cat</h2>
+<h2>Add a Burger to the Menu</h2>
 <form class="create-form">
 
   <div class="form-group">

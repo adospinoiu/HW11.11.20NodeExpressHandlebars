@@ -32,9 +32,12 @@ function objToSql(ob) {
 const orm = {
     // Function to display all from the database
     selectAll: function (tableName, cb) {
-        const queryString = "SELECT * FROM ??";
-        connection.query(queryString, tableName, function (err, result) {
-            if (err) throw err;
+        const queryString = "SELECT * FROM " + tableName + ";";
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            console.log("Result (queryString): \n")
             console.table(result);
             cb(result)
         });

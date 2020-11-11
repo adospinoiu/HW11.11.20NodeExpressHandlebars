@@ -6,6 +6,8 @@ const burger = {
     selectAll: function(cb) {
       orm.selectAll("burgers", function(res) {
         cb(res);
+        console.log("Result (MODEL - res): \n")
+        console.log(res);
       });
     },
 

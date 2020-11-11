@@ -2,12 +2,12 @@
 
 // Sets up the connection to MySQL
 const mysql = require("mysql");
-const connection;
+var connection;
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
-  const connection = mysql.createConnection({
+  connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -26,5 +26,5 @@ if (process.env.JAWSDB_URL) {
 // });
 
 // Exports the connection for use in the ORM
-connection.connect;
+connection.connect();
 module.exports = connection;
