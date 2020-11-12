@@ -37,7 +37,7 @@ const orm = {
             if (err) {
                 throw err;
             }
-            console.log("Result (queryString): \n")
+            console.log("Result (ORM - queryString): \n")
             console.table(result);
             cb(result)
         });
@@ -65,14 +65,27 @@ const orm = {
         });
     },
 
-    // Need to make sure this works
-    updateOne: function () {
-        const queryString = "SELECT * FROM parties WHERE party_type = 'grown-up'";
+
+    updateOne: function (table, objColVals, condition, cb) {
+        let queryString = "UPDATE " + table;
+
+        queryString += " SET ";
+        queryString += objToSql(objColVals);
+        queryString += " WHERE ";
+        queryString += condition;
+
+        console.log(queryString);
         connection.query(queryString, function (err, result) {
-            if (err) throw err;
-            console.table(result);
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
         });
-    },
+    }
+
+
+
 };
 
 
